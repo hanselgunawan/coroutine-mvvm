@@ -13,10 +13,6 @@ class MainActivityViewModel : ViewModel() {
 
     var recyclerListLiveData: MutableLiveData<RecyclerList> = MutableLiveData()
 
-    fun getRecyclerListObserver() : MutableLiveData<RecyclerList> {
-        return recyclerListLiveData
-    }
-
     fun makeApiCall() {
         // Coroutines
         viewModelScope.launch(Dispatchers.IO) {

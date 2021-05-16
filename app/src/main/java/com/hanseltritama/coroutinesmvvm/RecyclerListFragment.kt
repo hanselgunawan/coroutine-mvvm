@@ -52,7 +52,7 @@ class RecyclerListFragment : Fragment() {
     }
 
     private fun setupObserver() {
-        viewModel.getRecyclerListObserver().observe(this, Observer { recyclerList ->
+        viewModel.recyclerListLiveData.observe(this, Observer { recyclerList ->
             if (recyclerList != null) {
                 recyclerViewAdapter.setUpdatedData(recyclerList.items)
             } else {
