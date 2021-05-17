@@ -47,7 +47,7 @@ class RecyclerListFragment : Fragment() {
         val decoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(decoration)
 
-        recyclerViewAdapter  = RecyclerViewAdapter()
+        recyclerViewAdapter  = RecyclerViewAdapter(this.context)
         recyclerView.adapter = recyclerViewAdapter
     }
 
