@@ -3,6 +3,7 @@ package com.hanseltritama.coroutinesmvvm
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.hanseltritama.coroutinesmvvm.viewmodel.MainActivityViewModel
@@ -30,9 +31,14 @@ class UserActivity : AppCompatActivity() {
 
     private fun setupObserver() {
         viewModel.userLiveData.observe(this, Observer { owner ->
-            userName = owner.login
-            avatarUrl = owner.avatar_url
-            setupUI()
+            if (owner == null) {
+                progress_bar_user.visibility = View.VISIBLE
+            } else {
+                progress_bar_user.visibility = View.GONE
+                userName = owner.login
+                avatarUrl = owner.avatar_url
+                setupUI()
+            }
         })
     }
 
